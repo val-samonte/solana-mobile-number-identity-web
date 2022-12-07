@@ -3,7 +3,7 @@ import { getAuth } from 'firebase/auth'
 import { atom } from 'jotai'
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyDEB6bA2j6d9kTmQsKV-KI4b56AKeYDJKY',
+  apiKey: import.meta.env.FIREBASE_API_KEY,
   authDomain: 'mythrilsoft-app.firebaseapp.com',
   databaseURL: 'https://mythrilsoft-app.firebaseio.com',
   projectId: 'mythrilsoft-app',

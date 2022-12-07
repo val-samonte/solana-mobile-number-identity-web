@@ -1,9 +1,15 @@
+import { userWalletAtom } from '@/atoms/userWalletAtom'
 import { LoadingIndicator } from '@/components/LoadingIndicator'
+import { useWalletModal } from '@solana/wallet-adapter-react-ui'
 import classNames from 'classnames'
+import { useAtomValue } from 'jotai'
 import { Suspense } from 'react'
 import { App } from './App'
+import { FrontPage } from './FrontPage'
 
 export function Root() {
+  const { publicKey } = useAtomValue(userWalletAtom)
+
   return (
     <div className='fixed inset-0 overflow-x-hidden overflow-y-auto'>
       <div
@@ -16,19 +22,11 @@ export function Root() {
           <Suspense fallback={<LoadingIndicator />}>
             <div className='absolute inset-0 flex landscape:items-center landscape:justify-center'>
               <div className='mx-auto landscape:my-auto w-full max-h-full overflow-auto'>
-                <App />
+                {publicKey ? <App /> : <FrontPage />}
               </div>
             </div>
           </Suspense>
         </main>
-        {/* 
-        <footer className='flex-none flex items-center justify-center p-5'>
-          <div className='flex items-center'>
-            <img className='h-6 mr-3 text-zinc-50' src='/discord.svg' />
-            Join Our Community
-          </div>
-        </footer> 
-        */}
       </div>
     </div>
   )
