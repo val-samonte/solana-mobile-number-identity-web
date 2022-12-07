@@ -14,7 +14,11 @@ export function Root() {
       >
         <main className='flex-auto relative'>
           <Suspense fallback={<LoadingIndicator />}>
-            <App />
+            <div className='absolute inset-0 flex landscape:items-center landscape:justify-center'>
+              <div className='mx-auto landscape:my-auto w-full max-h-full overflow-auto'>
+                <App />
+              </div>
+            </div>
           </Suspense>
         </main>
         {/* 
