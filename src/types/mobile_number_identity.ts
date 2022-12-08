@@ -166,7 +166,7 @@ export type MobileNumberIdentity = {
           {
             "name": "id",
             "docs": [
-              "The hash of the phone number (32)"
+              "The hash of the phone number. (32)"
             ],
             "type": {
               "array": [
@@ -176,23 +176,27 @@ export type MobileNumberIdentity = {
             }
           },
           {
-            "name": "series",
-            "docs": [
-              "String in bytes of the series (YYYYDDD, eg. 2022340) (7)"
-            ],
-            "type": {
-              "array": [
-                "u8",
-                7
-              ]
-            }
-          },
-          {
             "name": "owner",
             "docs": [
-              "Owner of this identity (32)"
+              "Owner of this identity. (32)"
             ],
             "type": "publicKey"
+          },
+          {
+            "name": "timestamp",
+            "docs": [
+              "Unix timestamp. Besides from acting as a seed, useful to get the latest identity. (4)"
+            ],
+            "type": "u32"
+          },
+          {
+            "name": "voidedBy",
+            "docs": [
+              "Wallet address that voided this identity. If present, this identity is considered void. (1 + 32)"
+            ],
+            "type": {
+              "option": "publicKey"
+            }
           }
         ]
       }
@@ -209,8 +213,8 @@ export type MobileNumberIdentity = {
             "type": "string"
           },
           {
-            "name": "series",
-            "type": "string"
+            "name": "timestamp",
+            "type": "u32"
           }
         ]
       }
@@ -438,7 +442,7 @@ export const IDL: MobileNumberIdentity = {
           {
             "name": "id",
             "docs": [
-              "The hash of the phone number (32)"
+              "The hash of the phone number. (32)"
             ],
             "type": {
               "array": [
@@ -448,23 +452,27 @@ export const IDL: MobileNumberIdentity = {
             }
           },
           {
-            "name": "series",
-            "docs": [
-              "String in bytes of the series (YYYYDDD, eg. 2022340) (7)"
-            ],
-            "type": {
-              "array": [
-                "u8",
-                7
-              ]
-            }
-          },
-          {
             "name": "owner",
             "docs": [
-              "Owner of this identity (32)"
+              "Owner of this identity. (32)"
             ],
             "type": "publicKey"
+          },
+          {
+            "name": "timestamp",
+            "docs": [
+              "Unix timestamp. Besides from acting as a seed, useful to get the latest identity. (4)"
+            ],
+            "type": "u32"
+          },
+          {
+            "name": "voidedBy",
+            "docs": [
+              "Wallet address that voided this identity. If present, this identity is considered void. (1 + 32)"
+            ],
+            "type": {
+              "option": "publicKey"
+            }
           }
         ]
       }
@@ -481,8 +489,8 @@ export const IDL: MobileNumberIdentity = {
             "type": "string"
           },
           {
-            "name": "series",
-            "type": "string"
+            "name": "timestamp",
+            "type": "u32"
           }
         ]
       }
