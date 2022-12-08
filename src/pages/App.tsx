@@ -3,5 +3,9 @@ import { useAtomValue } from 'jotai'
 
 export function App() {
   const { disconnect } = useAtomValue(userWalletAtom)
-  return <div>{/* <button onClick={disconnect}>Disconnect</button> */}</div>
+  return (
+    <div>
+      <button onClick={disconnect}>Disconnect</button>
+    </div>
+  )
 }
