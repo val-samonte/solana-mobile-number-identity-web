@@ -34,11 +34,11 @@ export function FrontPage() {
         onClick={() => setVisible(true)}
         className={classNames(
           'transition-all rounded-full',
-          'py-3 px-5 hover:py-5 hover:px-7 hover:-m-2',
+          'py-3 px-5 hover:py-4 hover:px-6 hover:-m-1',
           'text-zinc-900 bg-zinc-200 hover:bg-white',
         )}
       >
-        Connect to Get Started
+        Get Started
       </button>
     </div>
   )

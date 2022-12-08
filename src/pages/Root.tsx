@@ -12,12 +12,7 @@ export function Root() {
 
   return (
     <div className='fixed inset-0 overflow-x-hidden overflow-y-auto'>
-      <div
-        className={classNames(
-          'lg:landscape:w-square w-full min-h-full',
-          'mx-auto flex flex-col',
-        )}
-      >
+      <div className={classNames('w-full min-h-full', 'mx-auto flex flex-col')}>
         <main className='flex-auto relative'>
           <Suspense fallback={<LoadingIndicator />}>
             <div className='absolute inset-0 flex landscape:items-center landscape:justify-center'>
