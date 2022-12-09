@@ -9,3 +9,7 @@ body {
 
   --square-size: min(100vw, 100vh);
 }
+
+#recaptcha-container:not(:empty) + p {
+  display: none;
+}

@@ -33,8 +33,8 @@ export function FrontPage() {
         type='button'
         onClick={() => setVisible(true)}
         className={classNames(
-          'transition-all rounded-full',
-          'py-3 px-5 hover:py-4 hover:px-6 hover:-m-1',
+          'transition-all rounded-lg',
+          'px-4 py-2 hover:px-5 hover:py-3 hover:-m-1',
           'text-zinc-900 bg-zinc-200 hover:bg-white',
         )}
       >

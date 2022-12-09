@@ -1,12 +1,16 @@
+import { currentPageAtom } from '@/atoms/currentPageAtom'
 import { userWalletAtom } from '@/atoms/userWalletAtom'
 import { GlowingTitle } from '@/components/GlowingTitle'
 import { trimAddress } from '@/utils/trimAddress'
 import classNames from 'classnames'
-import { useAtomValue } from 'jotai'
+import { useAtom, useAtomValue } from 'jotai'
+import { ListPage } from './ListPage'
+import { NewIdPage } from './NewIdPage'
 
 export function App() {
   const { publicKey } = useAtomValue(userWalletAtom)
   const { disconnect } = useAtomValue(userWalletAtom)
+  const [currentPage, setCurrentPage] = useAtom(currentPageAtom)
 
   if (!publicKey) return null
 
@@ -18,10 +22,26 @@ export function App() {
         </h1>
         <ul className='flex items-center gap-3'>
           <li className='hidden landscape:block'>
-            <button className='landscape:px-2 underline'>New ID</button>
+            <button
+              onClick={() => setCurrentPage('new')}
+              className={classNames(
+                'landscape:px-2',
+                currentPage === 'new' && 'underline',
+              )}
+            >
+              New ID
+            </button>
           </li>
           <li className='hidden landscape:block'>
-            <button className='landscape:px-2'>My IDs</button>
+            <button
+              onClick={() => setCurrentPage('list')}
+              className={classNames(
+                'landscape:px-2',
+                currentPage === 'list' && 'underline',
+              )}
+            >
+              My IDs
+            </button>
           </li>
           <li className='hidden landscape:block'>
             <button className='landscape:px-2'>Documentation</button>
@@ -39,21 +59,35 @@ export function App() {
           </li>
         </ul>
       </nav>
-      <div className='flex-auto p-5 relative'></div>
+      <div className='flex-auto relative'>
+        <div className='absolute inset-0 flex landscape:items-center landscape:justify-center'>
+          <div className='mx-auto p-5 landscape:my-auto w-full max-h-full overflow-auto'>
+            {currentPage === 'new' && <NewIdPage />}
+            {currentPage === 'list' && <ListPage />}
+          </div>
+        </div>
+      </div>
       <nav className='hidden portrait:flex sticky bottom-0 w-full bg-zinc-900 inset-x-0'>
         <ul className='grid grid-cols-3 w-full'>
           <li>
             <button
+              onClick={() => setCurrentPage('new')}
               className={classNames(
                 'w-full h-12 flex items-center justify-center',
-                'bg-black/10 text-zinc-400',
+                currentPage !== 'new' && 'bg-black/10 text-zinc-400',
               )}
             >
               New ID
             </button>
           </li>
           <li>
-            <button className='w-full h-12 flex items-center justify-center'>
+            <button
+              onClick={() => setCurrentPage('list')}
+              className={classNames(
+                'w-full h-12 flex items-center justify-center',
+                currentPage !== 'list' && 'bg-black/10 text-zinc-400',
+              )}
+            >
               My IDs
             </button>
           </li>
