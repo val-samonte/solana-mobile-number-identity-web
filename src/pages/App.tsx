@@ -61,7 +61,7 @@ export function App() {
       </nav>
       <div className='flex-auto relative'>
         <div className='absolute inset-0 flex landscape:items-center landscape:justify-center'>
-          <div className='mx-auto p-5 landscape:my-auto w-full max-h-full overflow-auto'>
+          <div className='m-auto p-5 w-full max-h-full overflow-auto'>
             {currentPage === 'new' && <NewIdPage />}
             {currentPage === 'list' && <ListPage />}
           </div>

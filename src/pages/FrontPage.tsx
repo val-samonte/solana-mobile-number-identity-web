@@ -24,8 +24,8 @@ export function FrontPage() {
           </h1>
           <hr className='my-3 opacity-20' />
           <p className='md:text-lg 2xl:text-xl max-w-xs'>
-            Easily associate your phone number to your Solana wallet address
-            with privacy
+            Easily link your phone number to your Solana wallet address with
+            privacy
           </p>
         </div>
       </div>
